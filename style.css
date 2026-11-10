@@ -1,0 +1,214 @@
+  @charset "UTF-8"; /* Deve ser sempre a PRIMEIRA linha do arquivo */
+ 
+/* =========================================
+   1. CONFIGURAÇÕES GERAIS
+   ========================================= */
+ 
+/* Cores do projeto. Para mudar uma cor em todo o site, altere só aqui */
+:root {
+    --azul: #0d3b66;
+    --azul-escuro: #082a49;
+    --verde: #0b6e4f;
+    --amarelo: #f7b32b;   /* cor de destaque e do foco do teclado */
+    --fundo: #f2f6f9;     /* fundo da página */
+    --card: #ffffff;      /* fundo dos cartões */
+    --texto: #1b2a38;
+    --suave: #e3edf4;
+    --borda: #c5d4e0;
+    --card1: #fefae0;
+}
+ 
+/* Modo alto contraste: o JS adiciona a classe "alto-contraste" no body
+   e todas as cores abaixo substituem as de cima */
+body.alto-contraste {
+    --azul: #000000;
+    --azul-escuro: #000000;
+    --verde: #003d99;
+    --amarelo: #ffeb3b;
+    --fundo: #000000;
+    --card: #000000;
+    --texto: #ffffff;
+    --suave: #000000;
+    --borda: #ffffff;
+
+}
+ 
+/* Remove margens padrão do navegador */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+/* Rolagem suave; scroll-padding evita que o menu fixo cubra o título da seção */
+html { scroll-behavior: smooth; scroll-padding-top: 130px; font-size: 100%; }
+ 
+/* Estilo geral. Verdana é uma fonte de fácil leitura */
+body { font-family: Verdana, Arial, sans-serif; background: var(--card1); color: var(--texto); line-height: 1.7; }
+ 
+/* Títulos */
+h1, h2, h3 { line-height: 1.25; color: var(--azul); }
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3 { color: var(--amarelo); }
+ 
+/* Limita a largura dos textos para facilitar a leitura */
+p { max-width: 68ch; }
+a { color: inherit; }
+code { background: var(--suave); padding: 0 4px; border-radius: 4px; }
+ 
+/* Contorno amarelo ao navegar pelo teclado (TAB). Não remova: é essencial para acessibilidade */
+:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 3px; box-shadow: 0 0 0 5px var(--azul-escuro); }
+ 
+/* Esconde da tela, mas leitores de tela ainda leem */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+ 
+/* Link "Pular para o conteúdo": fica fora da tela e aparece ao receber foco */
+.skip-link { position: absolute; left: 8px; top: -60px; background: var(--amarelo); color: #000; padding: 10px 16px; font-weight: bold; z-index: 300; border-radius: 6px; }
+.skip-link:focus { top: 8px; }
+ 
+/* =========================================
+   2. BARRA DE ACESSIBILIDADE E CABEÇALHO
+   ========================================= */
+ 
+/* Barra no topo com A−, A+ e alto contraste */
+.a11y-bar { background: var(--azul-escuro); color: #fff; padding: 6px 5%; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: .85rem; }
+.a11y-bar button { background: #fff; color: #000; border: 2px solid #fff; border-radius: 6px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: .85rem; }
+.a11y-bar button[aria-pressed="true"] { background: var(--amarelo); } /* botão ligado */
+ 
+/* Cabeçalho que acompanha a rolagem (sticky) */
+.site-header { position: sticky; top: 0; z-index: 100; background: var(--card1); box-shadow: 0 2px 8px rgba(0,0,0,.15); border-bottom: 1px solid var(--borda); }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 5%; }
+ 
+/* Nome da escola */
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: bold; color: var(--azul); line-height: 1.2; }
+body.alto-contraste .brand { color: var(--amarelo); }
+.brand-mark { font-size: 1.8rem; }
+ 
+/* Links do menu */
+.nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+.nav-links a { text-decoration: none; font-weight: bold; padding: 8px 12px; border-radius: 6px; }
+.nav-links a:hover { background: var(--suave); }
+/* Link da seção atual (aria-current é colocado pelo JS) */
+.nav-links a[aria-current="page"] { background: var(--azul); color: #fff; }
+body.alto-contraste .nav-links a[aria-current="page"] { background: var(--amarelo); color: #000; }
+ 
+/* Botões de lupa e menu */
+.nav-actions { display: flex; gap: 8px; }
+.icon-btn { background: var(--suave); border: 2px solid var(--borda); color: var(--texto); border-radius: 8px; width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; }
+.menu-button { display: none; } /* só aparece no celular (ver seção 6) */
+ 
+/* Painel de pesquisa: escondido até o JS adicionar a classe "open" */
+.search-panel { display: none; padding: 10px 5% 14px; border-top: 1px solid var(--borda); }
+.search-panel.open { display: block; }
+#searchInput { width: 100%; max-width: 460px; padding: 12px; font-size: 1rem; border: 2px solid var(--azul); border-radius: 8px; background: var(--card); color: var(--texto); }
+#searchStatus { font-size: .9rem; margin-top: 6px; }
+ 
+/* =========================================
+   3. BOTÕES
+   ========================================= */
+ 
+.btn { display: inline-block; padding: 13px 24px; border-radius: 8px; font-weight: bold; text-decoration: none; border: 2px solid transparent; }
+.btn-primary { background: var(--azul); color: #fff; }
+.btn-primary:hover { background: var(--azul-escuro); }
+.btn-outline { border-color: #fff; color: #fff; }
+.btn-outline:hover { background: rgba(255,255,255,.15); }
+body.alto-contraste .btn-primary { background: var(--amarelo); color: #000; }
+.hero .btn-primary { background: var(--amarelo); color: #1b1b1b; } /* botão amarelo sobre o fundo azul */
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+ 
+/* =========================================
+   4. ÁREA PRINCIPAL (INÍCIO)
+   ========================================= */
+ 
+/* Duas colunas: texto à esquerda, cards à direita */
+.hero { background: linear-gradient(135deg, var(--azul), var(--verde)); color: #fff; padding: 70px 5%; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+body.alto-contraste .hero { background: #000; border-bottom: 3px solid var(--amarelo); }
+ 
+/* clamp() ajusta o tamanho do título conforme a tela: (mínimo, ideal, máximo) */
+.hero h1 { color: #fff; font-size: clamp(1.8rem, 4.5vw, 2.8rem); margin: 8px 0 18px; }
+body.alto-contraste .hero h1 { color: var(--amarelo); }
+.eyebrow { font-weight: bold; }
+ 
+/* Cards de acesso rápido */
+.hero-art { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.feature-card { background: var(--card); color: var(--texto); border-radius: 12px; padding: 20px 14px; text-align: center; text-decoration: none; border: 2px solid var(--borda); display: flex; flex-direction: column; gap: 8px; }
+.feature-card:hover { border-color: var(--amarelo); }
+.feature-card .icon { font-size: 2rem; }
+ 
+/* =========================================
+   5. SEÇÕES
+   ========================================= */
+ 
+.section { padding: 64px 5%; }
+.section.highlight { background: var(--suave); } /* fundo diferente na seção de denúncia */
+.section-heading { margin-bottom: 30px; }
+.section-heading h2,
+.results-panel h2,
+.help-banner h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 12px; }
+ 
+/* --- Tipos de bullying: auto-fit cria quantas colunas couberem --- */
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+.info-card, .report-steps, .report-tips, .tip { background: var(--card); border: 2px solid var(--borda); border-radius: 12px; padding: 22px; }
+.info-card { border-left: 6px solid var(--verde); }
+.icon-box { font-size: 1.8rem; margin-bottom: 6px; }
+.info-card h3, .report-steps h3, .report-tips h3 { margin-bottom: 8px; }
+ 
+/* --- Denúncia anônima --- */
+.report-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.report-steps ol, .report-tips ul { padding-left: 22px; margin-bottom: 18px; }
+.report-steps li, .report-tips li { margin-bottom: 8px; }
+.warning { margin-top: 14px; padding: 10px; border: 2px solid #b00020; border-radius: 8px; font-size: .9rem; }
+body.alto-contraste .warning { border-color: var(--amarelo); }
+ 
+/* --- Dicas --- */
+.tips-grid { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.tip { display: flex; gap: 14px; align-items: flex-start; }
+/* Bolinha com o número da dica */
+.tip-number { background: var(--azul); color: #fff; min-width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-weight: bold; }
+body.alto-contraste .tip-number { background: var(--amarelo); color: #000; }
+ 
+/* --- Resultados --- */
+.results-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+.results-placeholder { border: 3px dashed var(--azul); border-radius: 12px; padding: 36px 20px; text-align: center; display: flex; flex-direction: column; gap: 8px; background: var(--card); }
+body.alto-contraste .results-placeholder { border-color: var(--amarelo); }
+ 
+/* --- Ajuda --- */
+.help-banner { background: var(--azul); color: #fff; border-radius: 14px; padding: 36px 5%; }
+.help-banner h2 { color: #fff; }
+body.alto-contraste .help-banner { border: 3px solid var(--amarelo); }
+body.alto-contraste .help-banner h2 { color: var(--amarelo); }
+.contacts { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 20px 0 24px; }
+.contacts li { background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.5); border-radius: 10px; padding: 14px; }
+.contacts strong { display: block; font-size: 1.4rem; } /* número do telefone em destaque */
+.help-banner .btn-primary { background: var(--amarelo); color: #1b1b1b; }
+ 
+/* Mensagem "nenhum resultado" da pesquisa */
+.no-results { text-align: center; padding: 30px; font-weight: bold; margin: 0 auto; }
+ 
+/* --- Rodapé --- */
+footer { background: var(--azul-escuro); color: #fff; text-align: center; padding: 28px 5%; }
+footer p { margin: 4px auto; }
+.small-note { font-size: .85rem; }
+.small-note1 { font-size: .85rem; color: var(--suave); }
+a { text-decoration: none; }
+body.alto-contraste footer { border-top: 3px solid var(--amarelo); }
+ 
+/* =========================================
+   6. RESPONSIVIDADE (tablets e celulares)
+   ========================================= */
+ 
+/* Tablets: as duas colunas viram uma só */
+@media (max-width: 900px) {
+    .hero, .report-grid, .results-panel { grid-template-columns: 1fr; }
+}
+ 
+/* Celulares: aparece o botão ☰ e o menu vira uma lista que abre e fecha */
+@media (max-width: 760px) {
+    .menu-button { display: block; }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--card); flex-direction: column; padding: 12px 5%; border-bottom: 2px solid var(--borda); }
+    .nav-links.open { display: flex; } /* classe "open" é colocada pelo JS */
+}
+ 
+/* Para quem desativa animações no aparelho (conforto e acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+}
+ 
