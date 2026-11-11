@@ -1,0 +1,129 @@
+[
+  {
+    "antipattern": "radial-spotlight-glow",
+    "name": "Decorative radial spotlight glow",
+    "description": "An accent-colored radial gradient fading to transparent, dropped behind a hero or section as a \"spotlight\" and bright enough against that surface to read as a cloud floating over the copy. It is a reflex AI decoration — the translucent cousin of the saturated radial halo. Let the surface stand on its own, or light the composition with a deliberate material accent rather than a floating colored haze.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "local-preview",
+    "line": 0,
+    "snippet": "radial-gradient spotlight glow \"inicio\" (#79b9a4 a0.22 → transparent) on 1280x704 surface",
+    "selector": "#inicio"
+  },
+  {
+    "antipattern": "low-contrast",
+    "name": "Low contrast text",
+    "description": "Text does not meet WCAG AA contrast requirements (4.5:1 for body, 3:1 for large text). Increase the contrast between text and background.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "local-preview",
+    "line": 0,
+    "snippet": "4.4:1 (need 4.5:1) — text #47726b on #d4eee2",
+    "advisory": true,
+    "selector": "a.feature-card.pesquisavel:nth-of-type(1) > span.card-index"
+  },
+  {
+    "antipattern": "low-contrast",
+    "name": "Low contrast text",
+    "description": "Text does not meet WCAG AA contrast requirements (4.5:1 for body, 3:1 for large text). Increase the contrast between text and background.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "local-preview",
+    "line": 0,
+    "snippet": "4.4:1 (need 4.5:1) — text #47726b on #ffe6bb",
+    "advisory": true,
+    "selector": "a.feature-card.pesquisavel:nth-of-type(2) > span.card-index"
+  },
+  {
+    "antipattern": "low-contrast",
+    "name": "Low contrast text",
+    "description": "Text does not meet WCAG AA contrast requirements (4.5:1 for body, 3:1 for large text). Increase the contrast between text and background.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "local-preview",
+    "line": 0,
+    "snippet": "4.3:1 (need 4.5:1) — text #47726b on #d3e9ed",
+    "advisory": true,
+    "selector": "a.feature-card.pesquisavel:nth-of-type(4) > span.card-index"
+  },
+  {
+    "antipattern": "side-tab",
+    "name": "Side-tab accent border",
+    "description": "Thick colored border on one side of a card — the most recognizable tell of AI-generated UIs. Use a subtler accent or remove it entirely.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "local-preview",
+    "line": 0,
+    "snippet": "border-left: 5px + border-radius: 12px",
+    "selector": "#reportWarning"
+  },
+  {
+    "antipattern": "nested-cards",
+    "name": "Nested cards",
+    "description": "Cards inside cards create visual noise and excessive depth. Flatten the hierarchy — use spacing, typography, and dividers instead of nesting containers.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "local-preview",
+    "line": 0,
+    "snippet": "Card inside card",
+    "selector": "#reportWarning"
+  },
+  {
+    "antipattern": "unbalanced-heading",
+    "name": "Unbalanced heading",
+    "description": "This heading wraps with its last line far shorter than the line above, often one word alone. Set text-wrap: balance on headings so the lines come out near even, or rewrite it to fit. Keep it if the break carries weight on purpose.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "local-preview",
+    "line": 0,
+    "snippet": "last of 2 lines is 35% as wide as the line above",
+    "advisory": true,
+    "selector": "#titulo-dicas"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "local-preview",
+    "line": 0,
+    "snippet": "\"pedagógica.\" alone on the last of 2 lines (21% of the measure)",
+    "advisory": true,
+    "selector": "li.tip.pesquisavel:nth-of-type(3) > div > p"
+  },
+  {
+    "antipattern": "straggler",
+    "name": "Straggler",
+    "description": "The last line of this paragraph holds one word, which leaves a hole under the block. Set text-wrap: pretty on body copy (Chrome, Safari) to pull a word down beside it. Where a browser ignores it, edit the last sentence or bind the last two words with a no-break space. Keep it if the break is intended.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "local-preview",
+    "line": 0,
+    "snippet": "\"diálogo.\" alone on the last of 2 lines (12% of the measure)",
+    "advisory": true,
+    "selector": "li.tip.pesquisavel:nth-of-type(4) > div > p"
+  },
+  {
+    "antipattern": "radial-spotlight-glow",
+    "name": "Decorative radial spotlight glow",
+    "description": "An accent-colored radial gradient fading to transparent, dropped behind a hero or section as a \"spotlight\" and bright enough against that surface to read as a cloud floating over the copy. It is a reflex AI decoration — the translucent cousin of the saturated radial halo. Let the surface stand on its own, or light the composition with a deliberate material accent rather than a floating colored haze.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "local-preview",
+    "line": 0,
+    "snippet": "radial-gradient spotlight glow \"help-banner\" (#c2eedc a0.18 → transparent) on 1152x537 surface",
+    "selector": "div.help-banner"
+  },
+  {
+    "antipattern": "nested-cards",
+    "name": "Nested cards",
+    "description": "Cards inside cards create visual noise and excessive depth. Flatten the hierarchy — use spacing, typography, and dividers instead of nesting containers.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "local-preview",
+    "line": 0,
+    "snippet": "Card inside card",
+    "selector": "div.results-placeholder"
+  }
+]

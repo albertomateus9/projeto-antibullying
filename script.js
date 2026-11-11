@@ -50,7 +50,7 @@ const observador = new IntersectionObserver((entradas) => {
             links.forEach((l) => {
                 // O link é o "atual" se o href dele for igual ao id da seção visível
                 const atual = l.getAttribute("href") === "#" + entrada.target.id;
-                if (atual) l.setAttribute("aria-current", "page");
+                if (atual) l.setAttribute("aria-current", "location");
                 else l.removeAttribute("aria-current");
             });
         }
@@ -58,6 +58,30 @@ const observador = new IntersectionObserver((entradas) => {
 }, { rootMargin: "-40% 0px -55% 0px" }); // considera só a faixa do meio da tela
 
 secoes.forEach((s) => observador.observe(s));
+
+// Fecha o menu ao usar Esc, tocar fora dele ou voltar à tela larga.
+// Não altera a pesquisa nem o formulário de denúncia.
+const fecharMenu = () => {
+    if (!navLinks.classList.contains("open")) return;
+    navLinks.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+};
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navLinks.classList.contains("open")) {
+        fecharMenu();
+        menuButton.focus();
+    }
+});
+
+document.addEventListener("pointerdown", (event) => {
+    if (!event.target.closest(".nav") && navLinks.classList.contains("open")) fecharMenu();
+});
+
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 760) fecharMenu();
+});
+
 
 /* =========================================
    3. SISTEMA DE PESQUISA
@@ -101,7 +125,8 @@ searchInput.addEventListener("input", () => {
 
     // Texto lido pelo leitor de tela com o número de resultados
     searchStatus.textContent = termo === "" ? "" :
-        vazio ? "Nenhum resultado." : encontrados + " resultado(s) encontrado(s).";
+        vazio ? "Nenhum resultado." :
+        encontrados === 1 ? "1 resultado encontrado." : encontrados + " resultados encontrados.";
 });
 
 // Tecla Esc fecha a pesquisa e devolve o foco à lupa
@@ -135,9 +160,9 @@ if (FORMULARIO_URL) {
    5. ACESSIBILIDADE: TAMANHO DA LETRA E CONTRASTE
    ========================================= */
 
-// --- Tamanho da letra (em %, de 80 a 150) ---
+// --- Tamanho da letra (em %, de 80 a 200) ---
 // Usa o valor salvo da última visita, ou 100 se for a primeira vez
-let tamanho = parseInt(ler("tamanho"), 10) || 100;
+let tamanho = Math.min(200, Math.max(80, parseInt(ler("tamanho"), 10) || 100));
 
 const aplicarTamanho = () => {
     document.documentElement.style.fontSize = tamanho + "%";
@@ -146,7 +171,7 @@ const aplicarTamanho = () => {
 aplicarTamanho(); // aplica assim que a página abre
 
 document.querySelector("#fontPlus").addEventListener("click", () => {
-    tamanho = Math.min(150, tamanho + 10); // não passa de 150%
+    tamanho = Math.min(200, tamanho + 10);
     aplicarTamanho();
 });
 document.querySelector("#fontMinus").addEventListener("click", () => {
