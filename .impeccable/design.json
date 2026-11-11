@@ -1,0 +1,17 @@
+{
+  "name": "Caderno de convivência",
+  "tokens": {
+    "paper": "#FAF9F4",
+    "ink": "#101F32",
+    "muted": "#52636B",
+    "sage": "#456A59",
+    "sageSoft": "#E9F0E9",
+    "coral": "#B84637",
+    "line": "#B9C9BE",
+    "dark": "#143E43"
+  },
+  "typography": {
+    "display": "Newsreader",
+    "body": "system-ui"
+  }
+}

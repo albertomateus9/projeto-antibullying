@@ -11,13 +11,12 @@
     <meta name="description" content="Projeto contra o bullying da EETEPA Vilhena Alves: informação, prevenção e orientações para buscar ajuda.">
 
     <!-- Título que aparece na aba do navegador -->
-    <title>EETEPA Vilhena Alves | Contra o Bullying</title>
-    <meta name="theme-color" content="#0d3b66">
+    <title>Contra o Bullying | Projeto estudantil da EETEPA Vilhena Alves</title>
+    <meta name="theme-color" content="#faf9f4">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!-- Conecta o arquivo de estilos (só UMA vez; antes estava duplicado) -->
-    <link rel="stylesheet" href="style.css?v=2">
-    <link rel="stylesheet" href="redesign.css?v=1">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
     <!-- Link invisível que aparece ao apertar TAB: pula o menu e vai direto ao conteúdo -->
@@ -39,14 +38,14 @@
 
             <!-- Nome e identificação da escola -->
             <a class="brand" href="#inicio">
-                <span class="brand-mark" aria-hidden="true">E</span>
-                <span>EETEPA<br>Vilhena Alves</span>
+                <span class="brand-mark" aria-hidden="true">E.</span>
+                <span>EETEPA <strong>Vilhena Alves</strong><small>Projeto estudantil · Feira de ciências</small></span>
             </a>
 
             <!-- Links do menu. Cada href aponta para o id de uma seção abaixo.
-                 aria-current="page" marca o link da seção atual (o JS atualiza sozinho) -->
+                 aria-current="location" marca o link da seção atual (o JS atualiza sozinho) -->
             <div class="nav-links" id="navLinks">
-                <a href="#inicio" aria-current="page">Início</a>
+                <a href="#inicio" aria-current="location">Início</a>
                 <a href="#sobre">Sobre</a>
                 <a href="#denuncia">Denúncia anônima</a>
                 <a href="#dicas">Dicas</a>
@@ -79,26 +78,23 @@
 
             <!-- Texto principal -->
             <div class="hero-copy">
-                <p class="hero-eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> EETEPA Vilhena Alves · Convivência escolar</p>
-                <h1 id="titulo-hero">Bullying não é brincadeira.<span> É um problema real.</span></h1>
-                <p>Informe-se, participe e faça a diferença na nossa escola. Respeito, empatia e diálogo constroem um ambiente seguro para todos. Saiba reconhecer a violência e onde buscar ajuda.</p>
+                <h1 id="titulo-hero">O respeito começa <em>entre nós.</em></h1>
+                <p>O bullying machuca e pode acontecer de muitas formas. Reconhecer, acolher e procurar apoio são atitudes que ajudam a transformar a convivência na escola.</p>
 
                 <!-- Botões de ação -->
                 <div class="actions">
-                    <a class="btn btn-primary" id="heroReportLink" href="#ajuda">Saiba onde buscar ajuda</a>
-                    <a class="btn btn-outline" href="#sobre">Entenda o bullying</a>
+                    <a class="btn btn-primary" id="heroReportLink" href="#ajuda">Encontre apoio <span aria-hidden="true">↗</span></a>
+                    <a class="text-link" href="#sobre">Entenda o bullying <span aria-hidden="true">→</span></a>
                 </div>
-                <p class="campaign-note">Uma campanha por respeito, escuta e acolhimento.</p>
+                <p class="campaign-note">Um projeto de estudantes da EETEPA Vilhena Alves.</p>
             </div>
 
-            <!-- Cards de acesso rápido.
-                 A classe "pesquisavel" faz o card entrar na busca do site -->
-            <div class="hero-art" role="group" aria-label="Acessos rápidos">
-                <a class="feature-card pesquisavel" href="#sobre"><span class="card-index" aria-hidden="true">01 / COMPREENDER</span><strong>Entenda o bullying</strong></a>
-                <a class="feature-card pesquisavel" href="#denuncia"><span class="card-index" aria-hidden="true">02 / ACOLHER</span><strong>Denúncia anônima</strong></a>
-                <a class="feature-card pesquisavel" href="#dicas"><span class="card-index" aria-hidden="true">03 / AGIR</span><strong>Aprenda a se proteger</strong></a>
-                <a class="feature-card pesquisavel" href="#ajuda"><span class="card-index" aria-hidden="true">04 / APOIO</span><strong>Onde buscar ajuda</strong></a>
-            </div>
+            <nav class="hero-index" aria-label="Caminhos para começar">
+                <p>Por onde começar</p>
+                <a class="index-link pesquisavel" href="#sobre"><span aria-hidden="true">01</span><strong>Reconhecer</strong><span aria-hidden="true">↗</span></a>
+                <a class="index-link pesquisavel" href="#dicas"><span aria-hidden="true">02</span><strong>Acolher</strong><span aria-hidden="true">↗</span></a>
+                <a class="index-link pesquisavel" href="#ajuda"><span aria-hidden="true">03</span><strong>Buscar apoio</strong><span aria-hidden="true">↗</span></a>
+            </nav>
         </section>
 
         <!-- ===== SOBRE O BULLYING ===== -->
@@ -108,7 +104,7 @@
                 <p>Bullying é violência intencional e repetida, com desequilíbrio de poder entre quem agride e quem sofre. No Brasil, a Lei 13.185/2015 criou o Programa de Combate à Intimidação Sistemática. Pode acontecer pessoalmente ou na internet.</p>
             </div>
 
-            <!-- Cards dos tipos de bullying (para adicionar um tipo, copie um <article>) -->
+            <!-- Tipos de bullying em uma lista editorial. -->
             <div class="info-grid">
                 <article class="info-card pesquisavel">
                     <h3>Bullying verbal</h3>
@@ -152,7 +148,7 @@
                     <a class="btn btn-primary" id="reportLink" href="#denuncia" target="_blank" rel="noopener noreferrer" hidden>Abrir formulário anônimo</a>
 
                     <!-- Aviso que só aparece se o link ainda não foi configurado (atributo hidden = escondido) -->
-                    <p class="warning" id="reportWarning">O formulário anônimo ainda não está disponível. Se você precisa de apoio agora, <a href="#ajuda">veja onde buscar ajuda</a> ou procure um adulto de confiança.</p>
+                    <p class="warning" id="reportWarning">O formulário de denúncia anônima ainda não está disponível. Se você precisa de apoio agora, <a href="#ajuda">veja onde buscar ajuda</a> ou procure um adulto de confiança.</p>
                 </div>
 
                 <!-- Coluna 2: orientações antes de enviar -->
@@ -195,8 +191,8 @@
 
                 <!-- Espaço reservado: troque pelos gráficos quando a pesquisa terminar -->
                 <div class="results-placeholder">
-                    <strong>Os resultados aparecerão aqui</strong>
-                    <span>Gráficos, percentuais e conclusões da pesquisa.</span>
+                    <strong>Pesquisa em preparação</strong>
+                    <span>Os dados serão publicados após a coleta e análise das respostas.</span>
                 </div>
             </div>
         </section>
@@ -228,10 +224,10 @@
         <strong>EETEPA Vilhena Alves — Contra o Bullying</strong>
         <p>Projeto educativo de conscientização e prevenção ao bullying.</p>
         <p class="small-note">Protótipo desenvolvido para a feira de ciências.</p>
-        <p class="small-note1">grupo: <a href="https://www.instagram.com/caioolliveira__/" target="_blank" rel="noopener noreferrer">Romulo</a>, <a href="https://www.instagram.com/_ogkauan/" target="_blank" rel="noopener noreferrer">Kauã</a>, <a href="https://www.instagram.com/samuel_zzk/" target="_blank" rel="noopener noreferrer">Samuel</a>, <a href="https://www.instagram.com/josuea.09/" target="_blank" rel="noopener noreferrer">Josué</a>, <a href="https://www.instagram.com/yanka.pa/" target="_blank" rel="noopener noreferrer">Yan</a></p>
+        <p class="small-note1">Grupo: <a href="https://www.instagram.com/caioolliveira__/" target="_blank" rel="noopener noreferrer">Romulo</a>, <a href="https://www.instagram.com/_ogkauan/" target="_blank" rel="noopener noreferrer">Kauã</a>, <a href="https://www.instagram.com/samuel_zzk/" target="_blank" rel="noopener noreferrer">Samuel</a>, <a href="https://www.instagram.com/josuea.09/" target="_blank" rel="noopener noreferrer">Josué</a>, <a href="https://www.instagram.com/yanka.pa/" target="_blank" rel="noopener noreferrer">Yan</a></p>
     </footer>
 
     <!-- Conecta o JavaScript (fica no final para carregar depois do HTML) -->
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
