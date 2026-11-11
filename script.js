@@ -59,6 +59,30 @@ const observador = new IntersectionObserver((entradas) => {
 
 secoes.forEach((s) => observador.observe(s));
 
+// Fecha o menu ao usar Esc, tocar fora dele ou voltar à tela larga.
+// Não altera a pesquisa nem o formulário de denúncia.
+const fecharMenu = () => {
+    if (!navLinks.classList.contains("open")) return;
+    navLinks.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+};
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navLinks.classList.contains("open")) {
+        fecharMenu();
+        menuButton.focus();
+    }
+});
+
+document.addEventListener("pointerdown", (event) => {
+    if (!event.target.closest(".nav") && navLinks.classList.contains("open")) fecharMenu();
+});
+
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 760) fecharMenu();
+});
+
+
 /* =========================================
    3. SISTEMA DE PESQUISA
    ========================================= */
