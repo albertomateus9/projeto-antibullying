@@ -17,6 +17,7 @@
 
     <!-- Conecta o arquivo de estilos (só UMA vez; antes estava duplicado) -->
     <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="redesign.css?v=1">
 </head>
 <body>
     <!-- Link invisível que aparece ao apertar TAB: pula o menu e vai direto ao conteúdo -->
@@ -78,7 +79,8 @@
 
             <!-- Texto principal -->
             <div class="hero-copy">
-                <h1 id="titulo-hero">Bullying não é brincadeira. É um problema real.</h1>
+                <p class="hero-eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> EETEPA Vilhena Alves · Convivência escolar</p>
+                <h1 id="titulo-hero">Bullying não é brincadeira.<span> É um problema real.</span></h1>
                 <p>Informe-se, participe e faça a diferença na nossa escola. Respeito, empatia e diálogo constroem um ambiente seguro para todos. Saiba reconhecer a violência e onde buscar ajuda.</p>
 
                 <!-- Botões de ação -->
@@ -86,15 +88,16 @@
                     <a class="btn btn-primary" id="heroReportLink" href="#ajuda">Saiba onde buscar ajuda</a>
                     <a class="btn btn-outline" href="#sobre">Entenda o bullying</a>
                 </div>
+                <p class="campaign-note">Uma campanha por respeito, escuta e acolhimento.</p>
             </div>
 
             <!-- Cards de acesso rápido.
                  A classe "pesquisavel" faz o card entrar na busca do site -->
-            <div class="hero-art">
-                <a class="feature-card pesquisavel" href="#sobre"><strong>Entenda o bullying</strong></a>
-                <a class="feature-card pesquisavel" href="#denuncia"><strong>Denúncia anônima</strong></a>
-                <a class="feature-card pesquisavel" href="#dicas"><strong>Aprenda a se proteger</strong></a>
-                <a class="feature-card pesquisavel" href="#ajuda"><strong>Onde buscar ajuda</strong></a>
+            <div class="hero-art" role="group" aria-label="Acessos rápidos">
+                <a class="feature-card pesquisavel" href="#sobre"><span class="card-index" aria-hidden="true">01 / COMPREENDER</span><strong>Entenda o bullying</strong></a>
+                <a class="feature-card pesquisavel" href="#denuncia"><span class="card-index" aria-hidden="true">02 / ACOLHER</span><strong>Denúncia anônima</strong></a>
+                <a class="feature-card pesquisavel" href="#dicas"><span class="card-index" aria-hidden="true">03 / AGIR</span><strong>Aprenda a se proteger</strong></a>
+                <a class="feature-card pesquisavel" href="#ajuda"><span class="card-index" aria-hidden="true">04 / APOIO</span><strong>Onde buscar ajuda</strong></a>
             </div>
         </section>
 
@@ -206,9 +209,9 @@
 
                 <!-- Telefones úteis -->
                 <ul class="contacts">
-                    <li class="pesquisavel"><strong>190</strong> Polícia Militar, em risco imediato</li>
-                    <li class="pesquisavel"><strong>100</strong> Disque Direitos Humanos, para denunciar violações contra crianças e adolescentes</li>
-                    <li class="pesquisavel"><strong>188</strong> CVV, apoio emocional 24 horas</li>
+                    <li class="pesquisavel"><a class="contact-number" href="tel:190" aria-label="Ligar para a Polícia Militar, 190">190</a>Polícia Militar, em risco imediato</li>
+                    <li class="pesquisavel"><a class="contact-number" href="tel:100" aria-label="Ligar para o Disque Direitos Humanos, 100">100</a>Disque Direitos Humanos, para denunciar violações contra crianças e adolescentes</li>
+                    <li class="pesquisavel"><a class="contact-number" href="tel:188" aria-label="Ligar para o CVV, 188">188</a>CVV, apoio emocional 24 horas</li>
                     <li class="pesquisavel"><strong>Conselho Tutelar</strong> procure o da sua cidade</li>
                 </ul>
 
@@ -225,7 +228,7 @@
         <strong>EETEPA Vilhena Alves — Contra o Bullying</strong>
         <p>Projeto educativo de conscientização e prevenção ao bullying.</p>
         <p class="small-note">Protótipo desenvolvido para a feira de ciências.</p>
-        <p class="small-note1">grupo: <a href="https://www.instagram.com/caioolliveira__/" target="_blank">Romulo</a>, <a href="https://www.instagram.com/_ogkauan/" target="_blank">Kauã</a>, <a href="https://www.instagram.com/samuel_zzk/" target="_blank">Samuel</a>, <a href="https://www.instagram.com/josuea.09/" target="_blank">Josué</a>, <a href="https://www.instagram.com/yanka.pa/" target="_blank">Yan</a></p>
+        <p class="small-note1">grupo: <a href="https://www.instagram.com/caioolliveira__/" target="_blank" rel="noopener noreferrer">Romulo</a>, <a href="https://www.instagram.com/_ogkauan/" target="_blank" rel="noopener noreferrer">Kauã</a>, <a href="https://www.instagram.com/samuel_zzk/" target="_blank" rel="noopener noreferrer">Samuel</a>, <a href="https://www.instagram.com/josuea.09/" target="_blank" rel="noopener noreferrer">Josué</a>, <a href="https://www.instagram.com/yanka.pa/" target="_blank" rel="noopener noreferrer">Yan</a></p>
     </footer>
 
     <!-- Conecta o JavaScript (fica no final para carregar depois do HTML) -->
