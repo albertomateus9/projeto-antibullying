@@ -1,31 +1,4 @@
 /* =========================================
-   1. MENU MOBILE
-   ========================================= */
-
-// Seleciona o botão do menu e a lista de navegação
-const botaoMenu = document.querySelector(".menu-mobile");
-const menu = document.querySelector("nav ul");
-
-// Verifica se os elementos existem
-if (botaoMenu && menu) {
-
-    // Abre ou fecha o menu ao clicar no botão
-    botaoMenu.addEventListener("click", () => {
-        menu.classList.toggle("aberto");
-    });
-
-    // Fecha o menu depois de clicar em um link
-    const linksMenu = menu.querySelectorAll("a");
-
-    linksMenu.forEach((link) => {
-        link.addEventListener("click", () => {
-            menu.classList.remove("aberto");
-        });
-    });
-}
-
-
-/* =========================================
    CONFIGURAÇÃO — A ÚNICA COISA QUE VOCÊ PRECISA EDITAR
    Cole entre as aspas o link do seu Google Forms de denúncia.
    No Forms: desative "Coletar e-mails" e "Exigir login"
@@ -144,17 +117,18 @@ searchInput.addEventListener("keydown", (e) => {
    4. FORMULÁRIO DE DENÚNCIA
    ========================================= */
 const reportLink = document.querySelector("#reportLink");       // botão do formulário
-const reportWarning = document.querySelector("#reportWarning"); // aviso de "não configurado"
+const reportSteps = document.querySelector("#reportSteps");
+const reportWarning = document.querySelector("#reportWarning");
+const heroReportLink = document.querySelector("#heroReportLink");
 
 if (FORMULARIO_URL) {
-    // Link configurado: o botão abre o formulário
+    // O formulário só aparece quando existe uma URL configurada.
     reportLink.href = FORMULARIO_URL;
-} else {
-    // Link vazio: impede o clique e mostra o aviso
-    reportLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        reportWarning.hidden = false;
-    });
+    reportLink.hidden = false;
+    reportSteps.hidden = false;
+    reportWarning.hidden = true;
+    heroReportLink.href = "#denuncia";
+    heroReportLink.textContent = "Fazer denúncia anônima";
 }
 
 /* =========================================

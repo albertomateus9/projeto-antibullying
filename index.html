@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Descrição que aparece em buscadores como o Google -->
-    <meta name="description" content="Projeto contra o bullying da EETEPA Vilhena Alves: informação, dicas e canal de denúncia anônima.">
+    <meta name="description" content="Projeto contra o bullying da EETEPA Vilhena Alves: informação, prevenção e orientações para buscar ajuda.">
 
     <!-- Título que aparece na aba do navegador -->
     <title>EETEPA Vilhena Alves | Contra o Bullying</title>
@@ -36,7 +36,7 @@
 
             <!-- Nome e identificação da escola -->
             <a class="brand" href="#inicio">
-                <span class="brand-mark" aria-hidden="true">📖</span>
+                <span class="brand-mark" aria-hidden="true">E</span>
                 <span>EETEPA<br>Vilhena Alves</span>
             </a>
 
@@ -53,8 +53,8 @@
 
             <!-- Botões de pesquisa e de menu (o menu ☰ só aparece no celular) -->
             <div class="nav-actions">
-                <button class="icon-btn" id="searchButton" aria-label="Abrir pesquisa" aria-expanded="false" aria-controls="searchPanel">🔍</button>
-                <button class="icon-btn menu-button" id="menuButton" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+                <button class="icon-btn" id="searchButton" aria-label="Abrir pesquisa" aria-expanded="false" aria-controls="searchPanel">Buscar</button>
+                <button class="icon-btn menu-button" id="menuButton" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">Menu</button>
             </div>
         </nav>
 
@@ -76,13 +76,12 @@
 
             <!-- Texto principal -->
             <div class="hero-copy">
-                <p class="eyebrow">Campanha de conscientização escolar</p>
                 <h1 id="titulo-hero">Bullying não é brincadeira. É um problema real.</h1>
-                <p>Informe-se, participe e faça a diferença na nossa escola. Respeito, empatia e diálogo constroem um ambiente seguro para todos, e você pode denunciar sem se identificar.</p>
+                <p>Informe-se, participe e faça a diferença na nossa escola. Respeito, empatia e diálogo constroem um ambiente seguro para todos. Saiba reconhecer a violência e onde buscar ajuda.</p>
 
                 <!-- Botões de ação -->
                 <div class="actions">
-                    <a class="btn btn-primary" href="#denuncia">Fazer denúncia anônima</a>
+                    <a class="btn btn-primary" id="heroReportLink" href="#ajuda">Saiba onde buscar ajuda</a>
                     <a class="btn btn-outline" href="#sobre">Entenda o bullying</a>
                 </div>
             </div>
@@ -90,10 +89,10 @@
             <!-- Cards de acesso rápido.
                  A classe "pesquisavel" faz o card entrar na busca do site -->
             <div class="hero-art">
-                <a class="feature-card pesquisavel" href="#sobre"><span class="icon" aria-hidden="true">📖</span><strong>Entenda o bullying</strong></a>
-                <a class="feature-card pesquisavel" href="#denuncia"><span class="icon" aria-hidden="true">🔒</span><strong>Denúncia anônima</strong></a>
-                <a class="feature-card pesquisavel" href="#dicas"><span class="icon" aria-hidden="true">🛡️</span><strong>Aprenda a se proteger</strong></a>
-                <a class="feature-card pesquisavel" href="#ajuda"><span class="icon" aria-hidden="true">👥</span><strong>Onde buscar ajuda</strong></a>
+                <a class="feature-card pesquisavel" href="#sobre"><strong>Entenda o bullying</strong></a>
+                <a class="feature-card pesquisavel" href="#denuncia"><strong>Denúncia anônima</strong></a>
+                <a class="feature-card pesquisavel" href="#dicas"><strong>Aprenda a se proteger</strong></a>
+                <a class="feature-card pesquisavel" href="#ajuda"><strong>Onde buscar ajuda</strong></a>
             </div>
         </section>
 
@@ -107,22 +106,18 @@
             <!-- Cards dos tipos de bullying (para adicionar um tipo, copie um <article>) -->
             <div class="info-grid">
                 <article class="info-card pesquisavel">
-                    <div class="icon-box" aria-hidden="true">💬</div>
                     <h3>Bullying verbal</h3>
                     <p>Ofensas, apelidos pejorativos, ameaças ou comentários repetidos para humilhar alguém.</p>
                 </article>
                 <article class="info-card pesquisavel">
-                    <div class="icon-box" aria-hidden="true">👥</div>
                     <h3>Bullying social</h3>
                     <p>Excluir, isolar ou espalhar boatos repetidamente para prejudicar a convivência de alguém.</p>
                 </article>
                 <article class="info-card pesquisavel">
-                    <div class="icon-box" aria-hidden="true">🤛</div>
                     <h3>Bullying físico</h3>
                     <p>Empurrões, socos, chutes ou danos aos pertences de outra pessoa.</p>
                 </article>
                 <article class="info-card pesquisavel">
-                    <div class="icon-box" aria-hidden="true">📱</div>
                     <h3>Cyberbullying</h3>
                     <p>Humilhações, ameaças ou exposição ofensiva feitas por redes sociais e mensagens.</p>
                 </article>
@@ -133,7 +128,7 @@
         <section class="section highlight" id="denuncia" aria-labelledby="titulo-denuncia">
             <div class="section-heading">
                 <h2 id="titulo-denuncia">Denúncia anônima</h2>
-                <p>Viu ou sofreu bullying? Você pode relatar sem dizer seu nome. Sua denúncia ajuda a escola a agir.</p>
+                <p>Viu ou sofreu bullying? Conheça as orientações para relatar o caso e saiba onde buscar apoio.</p>
             </div>
 
             <div class="report-grid">
@@ -141,7 +136,7 @@
                 <!-- Coluna 1: passo a passo e botão do formulário -->
                 <div class="report-steps pesquisavel">
                     <h3>Como fazer</h3>
-                    <ol>
+                    <ol id="reportSteps" hidden>
                         <li>Clique no botão para abrir o formulário.</li>
                         <li>Conte o que aconteceu, onde e quando. Não precisa colocar seu nome.</li>
                         <li>Descreva quem está envolvido, se souber. Se não souber, tudo bem.</li>
@@ -149,15 +144,15 @@
                     </ol>
 
                     <!-- O link real do formulário é colocado pelo script.js (variável FORMULARIO_URL) -->
-                    <a class="btn btn-primary" id="reportLink" href="#denuncia" target="_blank" rel="noopener noreferrer">Abrir formulário anônimo</a>
+                    <a class="btn btn-primary" id="reportLink" href="#denuncia" target="_blank" rel="noopener noreferrer" hidden>Abrir formulário anônimo</a>
 
                     <!-- Aviso que só aparece se o link ainda não foi configurado (atributo hidden = escondido) -->
-                    <p class="warning" id="reportWarning" hidden>O formulário ainda não foi configurado. Peça à equipe do projeto para colocar o link em <code>script.js</code>.</p>
+                    <p class="warning" id="reportWarning">O formulário anônimo ainda não está disponível. Se você precisa de apoio agora, <a href="#ajuda">veja onde buscar ajuda</a> ou procure um adulto de confiança.</p>
                 </div>
 
                 <!-- Coluna 2: orientações antes de enviar -->
                 <div class="report-tips pesquisavel">
-                    <h3>Antes de enviar</h3>
+                    <h3>Ao relatar um caso</h3>
                     <ul>
                         <li>Guarde provas, como prints de conversas, sem apagar nada.</li>
                         <li>Descreva fatos, não opiniões: o que, onde, quando e quem.</li>

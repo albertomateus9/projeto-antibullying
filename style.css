@@ -1,4 +1,4 @@
-  @charset "UTF-8"; /* Deve ser sempre a PRIMEIRA linha do arquivo */
+@charset "UTF-8"; /* Deve ser sempre a PRIMEIRA linha do arquivo */
  
 /* =========================================
    1. CONFIGURAÇÕES GERAIS
@@ -30,17 +30,20 @@ body.alto-contraste {
     --texto: #ffffff;
     --suave: #000000;
     --borda: #ffffff;
+    --card1: #000000;
 
 }
  
 /* Remove margens padrão do navegador */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+[hidden] { display: none !important; }
  
 /* Rolagem suave; scroll-padding evita que o menu fixo cubra o título da seção */
 html { scroll-behavior: smooth; scroll-padding-top: 130px; font-size: 100%; }
  
 /* Estilo geral. Verdana é uma fonte de fácil leitura */
-body { font-family: Verdana, Arial, sans-serif; background: var(--card1); color: var(--texto); line-height: 1.7; }
+body { font-family: Verdana, Arial, sans-serif; background: var(--card1); color: var(--texto); line-height: 1.65; }
+::selection { background: var(--amarelo); color: #111; }
  
 /* Títulos */
 h1, h2, h3 { line-height: 1.25; color: var(--azul); }
@@ -68,8 +71,8 @@ code { background: var(--suave); padding: 0 4px; border-radius: 4px; }
    ========================================= */
  
 /* Barra no topo com A−, A+ e alto contraste */
-.a11y-bar { background: var(--azul-escuro); color: #fff; padding: 6px 5%; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: .85rem; }
-.a11y-bar button { background: #fff; color: #000; border: 2px solid #fff; border-radius: 6px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: .85rem; }
+.a11y-bar { background: var(--azul-escuro); color: #fff; padding: 6px 5%; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: .8rem; }
+.a11y-bar button { background: #fff; color: #000; border: 2px solid #fff; border-radius: 6px; min-height: 36px; padding: 4px 10px; font-weight: bold; cursor: pointer; font-size: .8rem; }
 .a11y-bar button[aria-pressed="true"] { background: var(--amarelo); } /* botão ligado */
  
 /* Cabeçalho que acompanha a rolagem (sticky) */
@@ -79,7 +82,8 @@ code { background: var(--suave); padding: 0 4px; border-radius: 4px; }
 /* Nome da escola */
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: bold; color: var(--azul); line-height: 1.2; }
 body.alto-contraste .brand { color: var(--amarelo); }
-.brand-mark { font-size: 1.8rem; }
+.brand-mark { width: 38px; height: 38px; flex: 0 0 38px; display: grid; place-items: center; border-radius: 8px; background: var(--azul); color: #fff; font-size: 1.2rem; line-height: 1; }
+body.alto-contraste .brand-mark { background: var(--amarelo); color: #000; }
  
 /* Links do menu */
 .nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -91,7 +95,9 @@ body.alto-contraste .nav-links a[aria-current="page"] { background: var(--amarel
  
 /* Botões de lupa e menu */
 .nav-actions { display: flex; gap: 8px; }
-.icon-btn { background: var(--suave); border: 2px solid var(--borda); color: var(--texto); border-radius: 8px; width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; }
+.icon-btn { background: var(--suave); border: 1px solid var(--borda); color: var(--texto); border-radius: 8px; min-width: 72px; min-height: 44px; padding: 0 10px; font-size: .9rem; font-weight: bold; cursor: pointer; }
+.icon-btn:hover { background: var(--card); border-color: var(--azul); }
+body.alto-contraste .icon-btn { background: var(--amarelo); color: #000; border-color: var(--amarelo); }
 .menu-button { display: none; } /* só aparece no celular (ver seção 6) */
  
 /* Painel de pesquisa: escondido até o JS adicionar a classe "open" */
@@ -99,12 +105,14 @@ body.alto-contraste .nav-links a[aria-current="page"] { background: var(--amarel
 .search-panel.open { display: block; }
 #searchInput { width: 100%; max-width: 460px; padding: 12px; font-size: 1rem; border: 2px solid var(--azul); border-radius: 8px; background: var(--card); color: var(--texto); }
 #searchStatus { font-size: .9rem; margin-top: 6px; }
+body.alto-contraste #searchInput::placeholder { color: #ddd; }
  
 /* =========================================
    3. BOTÕES
    ========================================= */
  
-.btn { display: inline-block; padding: 13px 24px; border-radius: 8px; font-weight: bold; text-decoration: none; border: 2px solid transparent; }
+.btn { display: inline-block; padding: 13px 24px; border-radius: 8px; font-weight: bold; text-decoration: none; border: 2px solid transparent; transition: background-color .2s ease, border-color .2s ease, transform .2s ease; }
+.btn:hover { transform: translateY(-2px); }
 .btn-primary { background: var(--azul); color: #fff; }
 .btn-primary:hover { background: var(--azul-escuro); }
 .btn-outline { border-color: #fff; color: #fff; }
@@ -118,19 +126,20 @@ body.alto-contraste .btn-primary { background: var(--amarelo); color: #000; }
    ========================================= */
  
 /* Duas colunas: texto à esquerda, cards à direita */
-.hero { background: linear-gradient(135deg, var(--azul), var(--verde)); color: #fff; padding: 70px 5%; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+.hero { background: linear-gradient(135deg, var(--azul), var(--verde)); color: #fff; padding: 82px 5%; display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
 body.alto-contraste .hero { background: #000; border-bottom: 3px solid var(--amarelo); }
  
 /* clamp() ajusta o tamanho do título conforme a tela: (mínimo, ideal, máximo) */
-.hero h1 { color: #fff; font-size: clamp(1.8rem, 4.5vw, 2.8rem); margin: 8px 0 18px; }
+.hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3.25rem); max-width: 17ch; margin: 0 0 22px; letter-spacing: -.025em; }
+.hero-copy > p { font-size: 1.05rem; max-width: 58ch; }
 body.alto-contraste .hero h1 { color: var(--amarelo); }
-.eyebrow { font-weight: bold; }
  
 /* Cards de acesso rápido */
 .hero-art { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.feature-card { background: var(--card); color: var(--texto); border-radius: 12px; padding: 20px 14px; text-align: center; text-decoration: none; border: 2px solid var(--borda); display: flex; flex-direction: column; gap: 8px; }
-.feature-card:hover { border-color: var(--amarelo); }
-.feature-card .icon { font-size: 2rem; }
+.feature-card { background: var(--card); color: var(--azul); border-radius: 12px; padding: 22px; min-height: 132px; text-decoration: none; border: 1px solid var(--borda); display: flex; flex-direction: column; justify-content: space-between; gap: 20px; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.feature-card::after { content: ""; width: 9px; height: 9px; border-top: 2px solid currentColor; border-right: 2px solid currentColor; transform: rotate(45deg); align-self: flex-end; }
+.feature-card:hover { border-color: var(--amarelo); transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0, 0, 0, .14); }
+body.alto-contraste .feature-card { color: #fff; }
  
 /* =========================================
    5. SEÇÕES
@@ -145,16 +154,16 @@ body.alto-contraste .hero h1 { color: var(--amarelo); }
  
 /* --- Tipos de bullying: auto-fit cria quantas colunas couberem --- */
 .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
-.info-card, .report-steps, .report-tips, .tip { background: var(--card); border: 2px solid var(--borda); border-radius: 12px; padding: 22px; }
-.info-card { border-left: 6px solid var(--verde); }
-.icon-box { font-size: 1.8rem; margin-bottom: 6px; }
+.info-card, .report-steps, .report-tips, .tip { background: var(--card); border: 1px solid var(--borda); border-radius: 12px; padding: 24px; }
+.info-card { min-height: 190px; }
 .info-card h3, .report-steps h3, .report-tips h3 { margin-bottom: 8px; }
  
 /* --- Denúncia anônima --- */
 .report-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .report-steps ol, .report-tips ul { padding-left: 22px; margin-bottom: 18px; }
 .report-steps li, .report-tips li { margin-bottom: 8px; }
-.warning { margin-top: 14px; padding: 10px; border: 2px solid #b00020; border-radius: 8px; font-size: .9rem; }
+.warning { margin-top: 14px; padding: 16px; border: 1px solid var(--azul); border-radius: 8px; font-size: .95rem; background: var(--suave); }
+.warning a { font-weight: bold; text-decoration: underline; text-underline-offset: 3px; }
 body.alto-contraste .warning { border-color: var(--amarelo); }
  
 /* --- Dicas --- */
@@ -201,14 +210,20 @@ body.alto-contraste footer { border-top: 3px solid var(--amarelo); }
  
 /* Celulares: aparece o botão ☰ e o menu vira uma lista que abre e fecha */
 @media (max-width: 760px) {
+    .nav { gap: 8px; }
+    .nav-actions { gap: 6px; }
+    .icon-btn { min-width: 60px; padding: 0 8px; }
     .menu-button { display: block; }
     .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--card); flex-direction: column; padding: 12px 5%; border-bottom: 2px solid var(--borda); }
     .nav-links.open { display: flex; } /* classe "open" é colocada pelo JS */
+    .hero { padding: 52px 5%; gap: 30px; }
+    .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
+    .hero-copy > p { font-size: 1rem; }
+    .feature-card { min-height: 122px; padding: 16px; }
 }
- 
+
 /* Para quem desativa animações no aparelho (conforto e acessibilidade) */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     * { transition: none !important; animation: none !important; }
 }
- 
