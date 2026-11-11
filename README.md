@@ -2,6 +2,10 @@
 
 Site estático da campanha contra o bullying da EETEPA Vilhena Alves.
 
+**Site publicado:** https://albertomateus9.github.io/projeto-antibullying/
+
+O formulário anônimo ainda não tem endereço configurado. Para ativá-lo, informe uma URL em `FORMULARIO_URL` no início de `script.js`; enquanto ela estiver vazia, o site mostra orientações de ajuda em vez de um botão de envio.
+
 ## Impeccable
 
 O [Impeccable](https://github.com/pbakaus/impeccable) está instalado neste repositório para uso com Codex. O skill fica em `.agents/skills/impeccable/`, e o detector de qualidade visual é acionado pelos hooks em `.codex/hooks.json` durante a edição da interface.
